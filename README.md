@@ -16,8 +16,14 @@ tc 的uid改为了1000（原uid为1001），初步使用状态正常，暂时不
 
 ```
 1. 部分文件需要加可执行标识
-git update-index --chmod=+x ./**.sh
-
+git update-index --chmod=+x *.sh
+git update-index --chmod=+x ./tinycore/opt/bootlocal.sh
+git update-index --chmod=+x ./tinycore/opt/startserialtty
+git update-index --chmod=+x ./mydata/home/tc/*.sh
+# LF
+git config --global core.autocrlf false
+git config --global core.autocrlf input
+git config --global core.safecrlf true
 
 2. 9.0.3v7.gz
 系统文件目录，对应了tinycore目录，对此目录进行调整后，直接使用remaster进行重制即可。
