@@ -1,0 +1,1 @@
+dwc_otg.lpm_enable=0 console=ttyAMA0,115200 root=/dev/ram0 restore=/dev/mmcblk0p2/tce home=/dev/mmcblk0p2  elevator=deadline rootwait quiet nortc loglevel=3 noembed waitusb=1
