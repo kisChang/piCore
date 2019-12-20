@@ -39,3 +39,38 @@ sudo dnsmasq.sh
 sudo hostapd hostapd.conf
 配置程序就可以监听在默认80端口，等待配置更新确认。确认后重启设备即可。
 ```
+
+#### 常用软件安装
+
+
+##### Rabbitmq
+```
+Compiling rabbitmq worked - but I found an easier solution to get it running, using erlang runtine only. See as well http://www.rabbitmq.com/install-generic-unix.html.
+Requirements: erlang.tcz
+
+Download generic linux package, and untar it:
+Code: 
+wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.2.3/rabbitmq-server-generic-unix-3.2.3.tar.gz
+tar -zxvf rabbitmq-server-generic-unix-3.2.3.tar.gz
+rm -f rabbitmq-server-generic-unix-3.2.3.tar.gz
+
+Remove installation notes and move licence terms to appropriate folder:
+Code: 
+rm -f rabbitmq_server-3.2.3/INSTALL
+mkdir -p rabbitmq_server-3.2.3/share/licences/rabbitmq_server
+mv rabbitmq_server-3.2.3/LICENSE* rabbitmq_server-3.2.3/share/licences/rabbitmq_server/
+
+Afterwards store results:
+Code:
+backup
+
+Installation (I'll put this in bootlocal):
+Code:
+sudo cp -R rabbitmq_server-3.2.3/* /usr/local/
+
+Start server with Web-Management (Port 15672, guest:guest):
+Code: 
+sudo rabbitmq-plugins enable rabbitmq_management
+sudo rabbitmq-server
+
+```
