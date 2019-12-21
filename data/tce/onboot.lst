@@ -2,3 +2,5 @@ mc.tcz
 openssh.tcz
 hostapd.tcz
 dnsmasq.tcz
+dhcpcd.tcz
+alsa.tcz
