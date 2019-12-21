@@ -4,3 +4,4 @@ hostapd.tcz
 dnsmasq.tcz
 dhcpcd.tcz
 alsa.tcz
+wiringpi.tcz
