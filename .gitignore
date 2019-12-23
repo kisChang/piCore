@@ -35,4 +35,5 @@ rebel.xml
 node_modules
 package-lock.json
 
-data/tce/mydata.tgz
+*.tgz
+*.tgz.md5

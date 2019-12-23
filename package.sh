@@ -13,11 +13,18 @@ fi
 mkdir ${BASE_PATH}/target
 WORK=${BASE_PATH}/target
 
-# 打包mydata
+# mydata处理
 if [ -f ${BASE_PATH}/data/tce/mydata.tgz ]; then
   rm ${BASE_PATH}/data/tce/mydata.tgz
 fi
-tar --owner=1001 --group=50 -cvf ${BASE_PATH}/data/tce/mydata.tgz -C ${BASE_PATH}/mydata/ etc home
+if [ -f ${BASE_PATH}/mydata.tgz ]; then
+  # 存在待拷贝的文件
+  cp -rf ${BASE_PATH}/mydata.tgz ${BASE_PATH}/data/tce/mydata.tgz
+else
+  # 没有就自行创建
+  # 打包mydata
+  tar --owner=1001 --group=50 -cvf ${BASE_PATH}/data/tce/mydata.tgz -C ${BASE_PATH}/mydata/ etc home
+fi
 
 
 # 创建350mb的文件，大概剩余30M的空间
