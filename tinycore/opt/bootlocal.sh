@@ -15,7 +15,7 @@ echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 # /usr/local/bin/wifi.sh -a 2>&1 > /tmp/wifi.log
 
 #init JDK
-export JAVA_HOME=/home/tc/jre
+export JAVA_HOME=/opt/jre
 export PATH=$JAVA_HOME/bin:$PATH
 
 /home/tc/start-run.sh

@@ -2,11 +2,11 @@
 
 model=`cat /proc/device-tree/model`
 
-if [ "${model:0:20}" = "Raspberry Pi 3 Model" ]; then
-    port=ttyS0
-else
-    port=ttyAMA0
-fi
+#if [ "${model:0:20}" = "Raspberry Pi 3 Model" ]; then
+#    port=ttyS0
+#else
+#    port=ttyAMA0
+#fi
 port=ttyAMA0
 
 # Start serial terminal on Raspberry Pi

@@ -20,6 +20,17 @@ cd ${WORK}
 sudo zcat ${BASE_PATH}/vfat/9.0.3v7.gz | sudo cpio -i -d
 
 # 覆盖文件
+#jre结构
+if [ -f ${BASE_PATH}/jre.tar.gz ]; then
+  #存在jre
+  if [ -d ${BASE_PATH}/tinycore/opt/jre ]; then
+    rm -rf ${BASE_PATH}/tinycore/opt/jre
+  fi
+  # jre解包
+  mkdir ${BASE_PATH}/tinycore/opt/jre
+  tar -xzvf ${BASE_PATH}/jre.tar.gz -C ${BASE_PATH}/tinycore/opt/jre
+fi
+# 基础文件
 sudo cp -r ${BASE_PATH}/tinycore/* ./
 
 # 打包

@@ -17,14 +17,6 @@ WORK=${BASE_PATH}/target
 if [ -f ${BASE_PATH}/data/tce/mydata.tgz ]; then
   rm ${BASE_PATH}/data/tce/mydata.tgz
 fi
-if [ -d ${BASE_PATH}/mydata/home/tc/jre ]; then
-  rm -rf ${BASE_PATH}/mydata/home/tc/jre
-fi
-if [ -f ${BASE_PATH}/jre.tar.gz ]; then
-  #存在jre
-  mkdir ${BASE_PATH}/mydata/home/tc/jre
-  tar -xzvf ${BASE_PATH}/jre.tar.gz -C ${BASE_PATH}/mydata/home/tc/jre
-fi
 tar -cvf ${BASE_PATH}/data/tce/mydata.tgz -C ${BASE_PATH}/mydata/ etc home
 
 
@@ -34,9 +26,9 @@ dd if=/dev/zero of=${WORK}/raspberrypi.img bs=1M count=350
 # 格式化分区
 parted ${WORK}/raspberrypi.img --script -- mklabel msdos
 #45MB
-parted ${WORK}/raspberrypi.img --script -- mkpart primary fat32 8192s 102399s
+parted ${WORK}/raspberrypi.img --script -- mkpart primary fat32 8192s 184319s
 #135MB
-parted ${WORK}/raspberrypi.img --script -- mkpart primary ext4 102400s -1
+parted ${WORK}/raspberrypi.img --script -- mkpart primary ext4 184320s -1
 
 # 挂载
 loopdevice=`sudo losetup -f --show ${WORK}/raspberrypi.img`
