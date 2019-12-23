@@ -17,7 +17,7 @@ WORK=${BASE_PATH}/target
 if [ -f ${BASE_PATH}/data/tce/mydata.tgz ]; then
   rm ${BASE_PATH}/data/tce/mydata.tgz
 fi
-tar -cvf ${BASE_PATH}/data/tce/mydata.tgz -C ${BASE_PATH}/mydata/ etc home
+tar --owner=1001 --group=50 -cvf ${BASE_PATH}/data/tce/mydata.tgz -C ${BASE_PATH}/mydata/ etc home
 
 
 # 创建350mb的文件，大概剩余30M的空间
