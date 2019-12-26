@@ -27,8 +27,8 @@ else
 fi
 
 
-# 创建350mb的文件，大概剩余30M的空间
-dd if=/dev/zero of=${WORK}/raspberrypi.img bs=1M count=250
+# 创建200mb的文件，boot剩7M data共100，剩大概6-70M
+dd if=/dev/zero of=${WORK}/raspberrypi.img bs=1M count=200
 
 # 格式化分区
 parted ${WORK}/raspberrypi.img --script -- mklabel msdos
