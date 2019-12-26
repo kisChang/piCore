@@ -28,14 +28,14 @@ fi
 
 
 # 创建350mb的文件，大概剩余30M的空间
-dd if=/dev/zero of=${WORK}/raspberrypi.img bs=1M count=350
+dd if=/dev/zero of=${WORK}/raspberrypi.img bs=1M count=250
 
 # 格式化分区
 parted ${WORK}/raspberrypi.img --script -- mklabel msdos
 #45MB
-parted ${WORK}/raspberrypi.img --script -- mkpart primary fat32 8192s 204799s
+parted ${WORK}/raspberrypi.img --script -- mkpart primary fat32 8192s 172025s
 #135MB
-parted ${WORK}/raspberrypi.img --script -- mkpart primary ext4 204800s -1
+parted ${WORK}/raspberrypi.img --script -- mkpart primary ext4 172026s -1
 
 # 挂载
 loopdevice=`sudo losetup -f --show ${WORK}/raspberrypi.img`
