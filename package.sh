@@ -33,9 +33,9 @@ dd if=/dev/zero of=${WORK}/raspberrypi.img bs=1M count=350
 # 格式化分区
 parted ${WORK}/raspberrypi.img --script -- mklabel msdos
 #45MB
-parted ${WORK}/raspberrypi.img --script -- mkpart primary fat32 8192s 184319s
+parted ${WORK}/raspberrypi.img --script -- mkpart primary fat32 8192s 204799s
 #135MB
-parted ${WORK}/raspberrypi.img --script -- mkpart primary ext4 184320s -1
+parted ${WORK}/raspberrypi.img --script -- mkpart primary ext4 204800s -1
 
 # 挂载
 loopdevice=`sudo losetup -f --show ${WORK}/raspberrypi.img`
